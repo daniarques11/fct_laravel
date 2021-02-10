@@ -29,10 +29,19 @@
         </nav>
         <a class="btn btn-outline-primary" href="#">Sign up</a>
     </div>
-
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
     <!--Form-->
 
-    <form class="container mt-5">
+    <form method="POST" action="/form" class="container mt-5">
+    @csrf
         <div>
             <h2>
                 Informació de l'empresa
