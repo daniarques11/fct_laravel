@@ -46,6 +46,8 @@ class AgreementController extends Controller
                 'companySector.required' => "No s'ha introduït un sector",
                 'representantName.required' => "No s'ha introduït el nom del representant",
                 'representantNif.required' => "No s'ha introduït el NIF del representant",
+                'workCenterName.required' => "No s'ha introduït el nom del centre de treball",
+                'workCenterWorkersNum.required' => "No s'ha introduït el nombre de treballadors del centre",
                 'workCentrePhone1.required' => "No s'ha introduït un telèfon",
                 'workCentreLocation.required' => "No s'ha introduït una població",
                 'workCentreAddress.required' => "No s'ha introduït una adreça",

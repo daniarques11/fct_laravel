@@ -49,6 +49,7 @@
             <div class="form-group">
                 <label for="companyName">Nom</label>
                 <input type="text" class="form-control" id="companyName" placeholder="Empresa S.L.">
+
             </div>
 
             <div class="form-row">
