@@ -30,9 +30,20 @@
         <a class="btn btn-outline-primary" href="#">Sign up</a>
     </div>
 
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
     <!--Form-->
 
-    <form class="container mt-5">
+    <form class="container mt-5" action="/form" method="POST">
+    @csrf
         <div>
             <h2>
                 Informació de l'empresa
@@ -40,6 +51,7 @@
             <div class="form-group">
                 <label for="companyName">Nom</label>
                 <input type="text" class="form-control" id="companyName" placeholder="Empresa S.L.">
+
             </div>
 
             <div class="form-row">
