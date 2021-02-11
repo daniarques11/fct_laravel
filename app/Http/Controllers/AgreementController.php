@@ -14,7 +14,7 @@ class AgreementController extends Controller
                 'companyName' => 'required|min:3|max:100',
                 'companyCif' => 'required|min:3|max:15',
                 'companyPhone1' => 'required|min:9|max:15',
-                'companyPhone2' => 'min:9|max:15',
+                'companyPhone2' => 'max:15',
                 'companyLocation' => 'required|min:5|max:100',
                 'companyAddress' => 'required|min:5|max:100',
                 'companyCp' => 'required|digits:5',
@@ -26,12 +26,13 @@ class AgreementController extends Controller
                 'workCenterName' => 'required|min:3|max:100',
                 'workCenterWorkersNum' => 'required|in:<10,11-20,21-50,51-100,100>',
                 'workCentrePhone1' => 'required|min:9|max:15',
-                'workCentrePhone2' => 'min:9|max:15',
+                'workCentrePhone2' => 'max:15',
                 'workCentreLocation' => 'required|min:5|max:100',
                 'workCentreAddress' => 'required|min:5|max:100',
                 'workCentreCp' => 'required|digits:5',
                 'workCentreEmail' => 'required|email|min:5|max:100',
                 'agreementType' => 'required|in:full-time,part-time',
+                'agreementSchedule' => 'required',
                 'agreementPosition' => 'required|min:3|max:150'
             ],
             [
@@ -46,14 +47,13 @@ class AgreementController extends Controller
                 'companySector.required' => "No s'ha introduït un sector",
                 'representantName.required' => "No s'ha introduït el nom del representant",
                 'representantNif.required' => "No s'ha introduït el NIF del representant",
-                'workCenterName.required' => "No s'ha introduït el nom del centre de treball",
-                'workCenterWorkersNum.required' => "No s'ha introduït el nombre de treballadors del centre",
                 'workCentrePhone1.required' => "No s'ha introduït un telèfon",
                 'workCentreLocation.required' => "No s'ha introduït una població",
                 'workCentreAddress.required' => "No s'ha introduït una adreça",
                 'workCentreCp.required' => "No s'ha introduït un codi postal",
                 'workCentreEmail.required' => "No s'ha introduït un e-mail",
                 'agreementType.required' => "No s'ha introduït un tipus de jornada",
+                'agreementSchedule.required' => "No s'ha introduït un tipus de jornada",
                 'agreementPosition.required' => "No s'ha introduït un lloc de treball"
             ]
         );

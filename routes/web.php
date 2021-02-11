@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AgreementController;
 use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
