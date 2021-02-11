@@ -154,7 +154,17 @@
                     </div>
                 </fieldset>
             </div>
+
+            <div class="form-group @error('companyMainActivity') is-invalid @enderror">
+                <label for="companyMainActivity">Activitat principal</label>
+                <input type="text" class="form-control @error('companyMainActivity') is-invalid @enderror" name="companyMainActivity" value="{{ old('companyMainActivity') }}" placeholder="Fusteria">
+                @error('companyMainActivity')
+                <div class="text-danger my-2">{{ $message }}</div>
+                @enderror
+            </div>
         </div>
+        
+
         <div class="mt-5">
             <h2>
                 Representant de l'empresa

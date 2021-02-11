@@ -13,7 +13,6 @@ class Company extends Model
         'CIF',
         'name',
         'address',
-        'address',
         'town',
         'phone_number_1',
         'phone_number_2',

@@ -12,7 +12,6 @@ class WorkingCenter extends Model
     protected $fillable = [
         'name',
         'company_CIF',
-        'company_tutor_NIF',
         'address',
         'town',
         'phone_number_1',
