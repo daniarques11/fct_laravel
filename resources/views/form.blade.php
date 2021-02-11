@@ -17,6 +17,7 @@
 
 </head>
 
+
 <body class="w-100">
     <!--Nav bar-->
     <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
@@ -31,7 +32,6 @@
     </div>
 
     <!--Form-->
-
     <form method="POST" action="/form" class="container mt-5">
         @csrf
         <div>
@@ -40,7 +40,7 @@
             </h2>
             <div class="form-group">
                 <label for="companyName">Nom</label>
-                <input type="text" class="form-control @error('companyName') is-invalid @enderror" name="companyName" placeholder="Empresa S.L.">
+                <input type="text" class="form-control @error('companyName') is-invalid @enderror" name="companyName" value="{{ old('companyName') }}" placeholder="Empresa S.L." >
                 @error('companyName')
                 <div class="text-danger my-2">{{ $message }}</div>
                 @enderror
@@ -49,21 +49,21 @@
             <div class="form-row">
                 <div class="form-group @error('companyCif') is-invalid @enderror col-md-4">
                     <label for="companyCif">CIF</label>
-                    <input type="text" class="form-control @error('companyCif') is-invalid @enderror" name="companyCif" placeholder="4124992032X">
+                    <input type="text" class="form-control @error('companyCif') is-invalid @enderror" name="companyCif" value="{{ old('companyCif') }}" placeholder="4124992032X">
                     @error('companyCif')
                     <div class="text-danger my-2">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group @error('companyPhone1') is-invalid @enderror col-md-4">
                     <label for="companyPhone1">Telèfon 1</label>
-                    <input type="text" class="form-control @error('companyPhone1') is-invalid @enderror" name="companyPhone1" placeholder="+34 971123456">
+                    <input type="tel" class="form-control @error('companyPhone1') is-invalid @enderror" name="companyPhone1" value="{{ old('companyPhone1') }}" placeholder="+34 971123456">
                     @error('companyPhone1')
                     <div class="text-danger my-2">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group @error('companyPhone2') is-invalid @enderror col-md-4">
                     <label for="companyPhone2">Telèfon 2</label>
-                    <input type="text" class="form-control @error('companyPhone2') is-invalid @enderror" name="companyPhone2" placeholder="+34 971123456">
+                    <input type="tel" class="form-control @error('companyPhone2') is-invalid @enderror" name="companyPhone2" value="{{ old('companyPhone2') }}" placeholder="+34 971123456">
                     @error('companyPhone2')
                     <div class="text-danger my-2">{{ $message }}</div>
                     @enderror
@@ -73,21 +73,21 @@
             <div class="form-row">
                 <div class="form-group @error('companyLocation') is-invalid @enderror col-md-4">
                     <label for="companyLocation">Població</label>
-                    <input type="text" class="form-control @error('companyLocation') is-invalid @enderror" name="companyLocation" placeholder="Palma de Mallorca">
+                    <input type="text" class="form-control @error('companyLocation') is-invalid @enderror" name="companyLocation"  autocomplete="locality" value="{{ old('companyLocation') }}" placeholder="Palma de Mallorca">
                     @error('companyLocation')
                     <div class="text-danger my-2">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group @error('companyAddress') is-invalid @enderror col-md-4">
                     <label for="companyAddress">Adreça</label>
-                    <input type="text" class="form-control @error('companyAddress') is-invalid @enderror" name="companyAddress" placeholder="C/ Aragó 21, 1A">
+                    <input type="text" class="form-control @error('companyAddress') is-invalid @enderror" name="companyAddress"  autocomplete="street-address" value="{{ old('companyAddress') }}" placeholder="C/ Aragó 21">
                     @error('companyAddress')
                     <div class="text-danger my-2">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group @error('companyCp') is-invalid @enderror col-md-4">
                     <label for="companyCp">Codi Postal</label>
-                    <input type="number" class="form-control @error('companyCp') is-invalid @enderror" name="companyCp" placeholder="07006">
+                    <input type="number" class="form-control @error('companyCp') is-invalid @enderror" name="companyCp"  autocomplete="postal-code" value="{{ old('companyCp') }}" placeholder="07006">
                     @error('companyCp')
                     <div class="text-danger my-2">{{ $message }}</div>
                     @enderror
@@ -96,19 +96,19 @@
 
             <div class="form-group @error('companyEmail') is-invalid @enderror">
                 <label for="companyEmail">Adreça electrònica</label>
-                <input type="email" class="form-control @error('companyEmail') is-invalid @enderror" name="companyEmail" placeholder="exemple@gmail.com">
+                <input type="email" class="form-control @error('companyEmail') is-invalid @enderror" name="companyEmail"  autocomplete="email" value="{{ old('companyEmail') }}" placeholder="exemple@gmail.com">
                 @error('companyEmail')
                 <div class="text-danger my-2">{{ $message }}</div>
                 @enderror
             </div>
 
             <div class="form-row">
-                <fieldset class="form-group @error('companyOwnership') is-invalid @enderror col-md-6">
+                <fieldset class="form-group @error('companyOwnership') is-invalid @enderror col-md-6" value="{{ old('companyOwnership') }}">
                     <div class="row">
                         <legend class="col-form-label col-sm-4 pt-0">Titularitat empresa</legend>
                         <div class="col-sm-8">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="companyOwnership" name="companyOwnership1" value="private" checked>
+                                <input class="form-check-input" type="radio" name="companyOwnership" name="companyOwnership1" value="private">
                                 <label class="form-check-label" for="companyOwnership1">
                                     Pública
                                 </label>
@@ -125,7 +125,7 @@
                         </div>
                     </div>
                 </fieldset>
-                <fieldset class="form-group @error('companySector') is-invalid @enderror col-md-6">
+                <fieldset class="form-group @error('companySector') is-invalid @enderror col-md-6" value="{{ old('companySector') }}">
                     <div class="row">
                         <legend class="col-form-label col-sm-4 pt-0">Sector productiu</legend>
                         <div class="col-sm-8">
@@ -142,7 +142,7 @@
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="companySector" name="companySector3" value="tertiary" checked>
+                                <input class="form-check-input" type="radio" name="companySector" name="companySector3" value="tertiary">
                                 <label class="form-check-label" for="companySector3">
                                     Terciari
                                 </label>
@@ -161,7 +161,7 @@
             </h2>
             <div class="form-group @error('representantName') is-invalid @enderror">
                 <label for="representantName">Nom complet</label>
-                <input type="text" class="form-control @error('representantName') is-invalid @enderror" name="representantName" placeholder="Nom i cognoms">
+                <input type="text" class="form-control @error('representantName') is-invalid @enderror" name="representantName" value="{{ old('representantName') }}" placeholder="Nom i cognoms">
                 @error('representantName')
                 <div class="text-danger my-2">{{ $message }}</div>
                 @enderror
@@ -169,7 +169,7 @@
             <div class="form-row">
                 <div class="form-group @error('representantNif') is-invalid @enderror col-md-4">
                     <label for="representantNif">NIF</label>
-                    <input type="text" class="form-control @error('representantNif') is-invalid @enderror" name="representantNif" placeholder="41234567-X">
+                    <input type="text" class="form-control @error('representantNif') is-invalid @enderror" name="representantNif" value="{{ old('representantNif') }}" placeholder="41234567-X">
                     @error('representantNif')
                     <div class="text-danger my-2">{{ $message }}</div>
                     @enderror
@@ -183,7 +183,7 @@
             </h2>
             <div class="form-group @error('workCenterName') is-invalid @enderror">
                 <label for="workCenterName">Nom</label>
-                <input type="text" class="form-control @error('workCenterName') is-invalid @enderror" name="workCenterName" placeholder="Centre Empresa">
+                <input type="text" class="form-control @error('workCenterName') is-invalid @enderror" name="workCenterName" value="{{ old('workCenterName') }}" placeholder="Centre Empresa">
                 @error('workCenterName')
                 <div class="text-danger my-2">{{ $message }}</div>
                 @enderror
@@ -192,7 +192,7 @@
             <div class="form-row">
                 <div class="form-group @error('workCenterWorkersNum') is-invalid @enderror col-md-4">
                     <label for="workCenterWorkersNum">Nombre de treballadors</label>
-                    <select name="workCenterWorkersNum" class="form-control @error('workCenterWorkersNum') is-invalid @enderror">
+                    <select name="workCenterWorkersNum" class="form-control @error('workCenterWorkersNum') is-invalid @enderror" value="{{ old('workCenterWorkersNum') }}">
                         <option value="<10">10 o menys</option>
                         <option value="11-20">Entre 11 i 20</option>
                         <option value="21-50">Entre 21 i 50</option>
@@ -205,14 +205,14 @@
                 </div>
                 <div class="form-group @error('workCentrePhone1') is-invalid @enderror col-md-4">
                     <label for="workCentrePhone1">Telèfon 1</label>
-                    <input type="text" class="form-control @error('workCentrePhone1') is-invalid @enderror" name="workCentrePhone1" placeholder="+34 971123456">
+                    <input type="tel" class="form-control @error('workCentrePhone1') is-invalid @enderror" name="workCentrePhone1" value="{{ old('workCentrePhone1') }}" placeholder="+34 971123456">
                     @error('workCentrePhone1')
                     <div class="text-danger my-2">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group @error('workCentrePhone2') is-invalid @enderror col-md-4">
                     <label for="workCentrePhone2">Telèfon 2</label>
-                    <input type="text" class="form-control @error('workCentrePhone2') is-invalid @enderror" name="workCentrePhone2" placeholder="+34 971123456">
+                    <input type="tel" class="form-control @error('workCentrePhone2') is-invalid @enderror" name="workCentrePhone2" value="{{ old('workCentrePhone2') }}" placeholder="+34 971123456">
                     @error('workCentrePhone2')
                     <div class="text-danger my-2">{{ $message }}</div>
                     @enderror
@@ -222,21 +222,21 @@
             <div class="form-row">
                 <div class="form-group @error('workCentreLocation') is-invalid @enderror col-md-4">
                     <label for="workCentreLocation">Població</label>
-                    <input type="text" class="form-control @error('workCentreLocation') is-invalid @enderror" name="workCentreLocation" placeholder="Palma de Mallorca">
+                    <input type="text" class="form-control @error('workCentreLocation') is-invalid @enderror" name="workCentreLocation" autocomplete="locality" value="{{ old('workCentreLocation') }}" placeholder="Palma de Mallorca">
                     @error('workCentreLocation')
                     <div class="text-danger my-2">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group @error('workCentreAddress') is-invalid @enderror col-md-4">
                     <label for="workCentreAddress">Adreça</label>
-                    <input type="text" class="form-control @error('workCentreAddress') is-invalid @enderror" name="workCentreAddress" placeholder="C/ Aragó 21, 1A">
+                    <input type="text" class="form-control @error('workCentreAddress') is-invalid @enderror" name="workCentreAddress" autocomplete="street-address" value="{{ old('workCentreAddress') }}" placeholder="C/ Aragó 21">
                     @error('workCentreAddress')
                     <div class="text-danger my-2">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group @error('workCentreCp') is-invalid @enderror col-md-4">
                     <label for="workCentreCp">Codi Postal</label>
-                    <input type="number" class="form-control @error('workCentreCp') is-invalid @enderror" name="workCentreCp" placeholder="07006">
+                    <input type="number" class="form-control @error('workCentreCp') is-invalid @enderror" name="workCentreCp" autocomplete="postal-code" value="{{ old('workCentreCp') }}" placeholder="07006">
                     @error('workCentreCp')
                     <div class="text-danger my-2">{{ $message }}</div>
                     @enderror
@@ -245,7 +245,7 @@
 
             <div class="form-group @error('workCentreEmail') is-invalid @enderror">
                 <label for="workCentreEmail">Adreça electrònica</label>
-                <input type="email" class="form-control @error('workCentreEmail') is-invalid @enderror" name="workCentreEmail" placeholder="exemple@gmail.com">
+                <input type="email" class="form-control @error('workCentreEmail') is-invalid @enderror" name="workCentreEmail" autocomplete="email" value="{{ old('workCentreEmail') }}" placeholder="name@example.com">
                 @error('workCentreEmail')
                 <div class="text-danger my-2">{{ $message }}</div>
                 @enderror
@@ -257,12 +257,12 @@
                 Contracte de formació
             </h2>
             <div class="form-row">
-                <fieldset class="form-group @error('agreementType') is-invalid @enderror col-md-6">
+                <fieldset class="form-group @error('agreementType') is-invalid @enderror col-md-6" value="{{ old('agreementType') }}">
                     <div class="row">
                         <legend class="col-form-label col-sm-4 pt-0">Tipus de jornada</legend>
                         <div class="col-sm-8">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="agreementType" name="agreementType1" value="full-time" checked>
+                                <input class="form-check-input" type="radio" name="agreementType" name="agreementType1" value="full-time">
                                 <label class="form-check-label" for="agreementType1">
                                     Completa
                                 </label>
@@ -281,7 +281,8 @@
                 </fieldset>
                 <div class="form-group @error('agreementSchedule') is-invalid @enderror">
                     <label for="agreementSchedule">Horari</label>
-                    <input type="text" class="form-control @error('companyName') is-invalid @enderror" name="agreementSchedule" placeholder="De 8:00 a 10:00">
+                    <!--TODO: Modificar per input time (canvia de 2 a 4 inputs si es xapat)-->
+                    <input type="text" class="form-control @error('agreementSchedule') is-invalid @enderror" name="agreementSchedule" value="{{ old('agreementSchedule') }}" placeholder="De 8:00 a 10:00">
                     @error('agreementSchedule')
                         <div class="text-danger my-2">{{ $message }}</div>
                     @enderror
@@ -290,7 +291,7 @@
 
             <div class="form-group @error('agreementPosition') is-invalid @enderror">
                 <label for="agreementPosition">Lloc de treball</label>
-                <input type="text" class="form-control @error('companyName') is-invalid @enderror" name="agreementPosition" placeholder="Lloc de treball">
+                <input type="text" class="form-control @error('agreementPosition') is-invalid @enderror" name="agreementPosition" value="{{ old('agreementPosition') }}" placeholder="Lloc de treball">
                 @error('agreementPosition')
                 <div class="text-danger my-2">{{ $message }}</div>
                 @enderror
