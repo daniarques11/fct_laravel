@@ -30,15 +30,7 @@
         </nav>
         <a class="btn btn-outline-primary" href="#">Sign up</a>
     </div>
-    @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+
     <!--Form-->
     <form method="POST" action="/form" class="container mt-5">
         @csrf
@@ -313,7 +305,8 @@
     <footer class="pt-4 my-md-5 pt-md-5 border-top container">
         <div class="row">
             <div class="col-12 col-md">
-                <small class="d-block mb-3 text-muted">&copy; 2017-2018</small>
+                <small class="d-block mb-3 text-muted">&copy; 2020-2021</small>
+                <small class="d-block mb-3 text-muted">Daniel Arqués Toro</small>
             </div>
             <div class="col-6 col-md">
                 <h5>Features</h5>
