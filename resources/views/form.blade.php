@@ -38,34 +38,34 @@
             <h2>
                 Informació de l'empresa
             </h2>
-            <div class="form-group @error('companyName') is-invalid @enderror">
+            <div class="form-group">
                 <label for="companyName">Nom</label>
-                <input type="text" class="form-control" name="companyName" placeholder="Empresa S.L.">
+                <input type="text" class="form-control @error('companyName') is-invalid @enderror" name="companyName" placeholder="Empresa S.L.">
                 @error('companyName')
-                <div class="alert alert-danger">{{ $message }}</div>
+                <div class="text-danger my-2">{{ $message }}</div>
                 @enderror
             </div>
 
             <div class="form-row">
                 <div class="form-group @error('companyCif') is-invalid @enderror col-md-4">
                     <label for="companyCif">CIF</label>
-                    <input type="text" class="form-control" name="companyCif" placeholder="4124992032X">
+                    <input type="text" class="form-control @error('companyCif') is-invalid @enderror" name="companyCif" placeholder="4124992032X">
                     @error('companyCif')
-                    <div class="alert alert-danger">{{ $message }}</div>
+                    <div class="text-danger my-2">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group @error('companyPhone1') is-invalid @enderror col-md-4">
                     <label for="companyPhone1">Telèfon 1</label>
-                    <input type="text" class="form-control" name="companyPhone1" placeholder="+34 971123456">
+                    <input type="text" class="form-control @error('companyPhone1') is-invalid @enderror" name="companyPhone1" placeholder="+34 971123456">
                     @error('companyPhone1')
-                    <div class="alert alert-danger">{{ $message }}</div>
+                    <div class="text-danger my-2">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group @error('companyPhone2') is-invalid @enderror col-md-4">
                     <label for="companyPhone2">Telèfon 2</label>
-                    <input type="text" class="form-control" name="companyPhone2" placeholder="+34 971123456">
+                    <input type="text" class="form-control @error('companyPhone2') is-invalid @enderror" name="companyPhone2" placeholder="+34 971123456">
                     @error('companyPhone2')
-                    <div class="alert alert-danger">{{ $message }}</div>
+                    <div class="text-danger my-2">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
@@ -73,32 +73,32 @@
             <div class="form-row">
                 <div class="form-group @error('companyLocation') is-invalid @enderror col-md-4">
                     <label for="companyLocation">Població</label>
-                    <input type="text" class="form-control" name="companyLocation" placeholder="Palma de Mallorca">
+                    <input type="text" class="form-control @error('companyLocation') is-invalid @enderror" name="companyLocation" placeholder="Palma de Mallorca">
                     @error('companyLocation')
-                    <div class="alert alert-danger">{{ $message }}</div>
+                    <div class="text-danger my-2">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group @error('companyAddress') is-invalid @enderror col-md-4">
                     <label for="companyAddress">Adreça</label>
-                    <input type="text" class="form-control" name="companyAddress" placeholder="C/ Aragó 21, 1A">
+                    <input type="text" class="form-control @error('companyAddress') is-invalid @enderror" name="companyAddress" placeholder="C/ Aragó 21, 1A">
                     @error('companyAddress')
-                    <div class="alert alert-danger">{{ $message }}</div>
+                    <div class="text-danger my-2">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group @error('companyCp') is-invalid @enderror col-md-4">
                     <label for="companyCp">Codi Postal</label>
-                    <input type="number" class="form-control" name="companyCp" placeholder="07006">
+                    <input type="number" class="form-control @error('companyCp') is-invalid @enderror" name="companyCp" placeholder="07006">
                     @error('companyCp')
-                    <div class="alert alert-danger">{{ $message }}</div>
+                    <div class="text-danger my-2">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
 
             <div class="form-group @error('companyEmail') is-invalid @enderror">
                 <label for="companyEmail">Adreça electrònica</label>
-                <input type="email" class="form-control" name="companyEmail" placeholder="exemple@gmail.com">
+                <input type="email" class="form-control @error('companyEmail') is-invalid @enderror" name="companyEmail" placeholder="exemple@gmail.com">
                 @error('companyEmail')
-                <div class="alert alert-danger">{{ $message }}</div>
+                <div class="text-danger my-2">{{ $message }}</div>
                 @enderror
             </div>
 
@@ -120,7 +120,7 @@
                                 </label>
                             </div>
                             @error('companyOwnership')
-                            <div class="alert alert-danger">{{ $message }}</div>
+                            <div class="text-danger my-2">{{ $message }}</div>
                             @enderror
                         </div>
                     </div>
@@ -148,7 +148,7 @@
                                 </label>
                             </div>
                             @error('companySector')
-                            <div class="alert alert-danger">{{ $message }}</div>
+                            <div class="text-danger my-2">{{ $message }}</div>
                             @enderror
                         </div>
                     </div>
@@ -161,17 +161,17 @@
             </h2>
             <div class="form-group @error('representantName') is-invalid @enderror">
                 <label for="representantName">Nom complet</label>
-                <input type="text" class="form-control" name="representantName" placeholder="Nom i cognoms">
+                <input type="text" class="form-control @error('representantName') is-invalid @enderror" name="representantName" placeholder="Nom i cognoms">
                 @error('representantName')
-                <div class="alert alert-danger">{{ $message }}</div>
+                <div class="text-danger my-2">{{ $message }}</div>
                 @enderror
             </div>
             <div class="form-row">
                 <div class="form-group @error('representantNif') is-invalid @enderror col-md-4">
                     <label for="representantNif">NIF</label>
-                    <input type="text" class="form-control" name="representantNif" placeholder="41234567-X">
+                    <input type="text" class="form-control @error('representantNif') is-invalid @enderror" name="representantNif" placeholder="41234567-X">
                     @error('representantNif')
-                    <div class="alert alert-danger">{{ $message }}</div>
+                    <div class="text-danger my-2">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
@@ -183,16 +183,16 @@
             </h2>
             <div class="form-group @error('workCenterName') is-invalid @enderror">
                 <label for="workCenterName">Nom</label>
-                <input type="text" class="form-control" name="workCenterName" placeholder="Centre Empresa">
+                <input type="text" class="form-control @error('workCenterName') is-invalid @enderror" name="workCenterName" placeholder="Centre Empresa">
                 @error('workCenterName')
-                <div class="alert alert-danger">{{ $message }}</div>
+                <div class="text-danger my-2">{{ $message }}</div>
                 @enderror
             </div>
 
             <div class="form-row">
                 <div class="form-group @error('workCenterWorkersNum') is-invalid @enderror col-md-4">
                     <label for="workCenterWorkersNum">Nombre de treballadors</label>
-                    <select name="workCenterWorkersNum" class="form-control">
+                    <select name="workCenterWorkersNum" class="form-control @error('workCenterWorkersNum') is-invalid @enderror">
                         <option value="<10">10 o menys</option>
                         <option value="11-20">Entre 11 i 20</option>
                         <option value="21-50">Entre 21 i 50</option>
@@ -200,21 +200,21 @@
                         <option value="100>">Més de 100</option>
                     </select>
                     @error('workCenterWorkersNum')
-                    <div class="alert alert-danger">{{ $message }}</div>
+                    <div class="text-danger my-2">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group @error('workCentrePhone1') is-invalid @enderror col-md-4">
                     <label for="workCentrePhone1">Telèfon 1</label>
-                    <input type="text" class="form-control" name="workCentrePhone1" placeholder="+34 971123456">
+                    <input type="text" class="form-control @error('workCentrePhone1') is-invalid @enderror" name="workCentrePhone1" placeholder="+34 971123456">
                     @error('workCentrePhone1')
-                    <div class="alert alert-danger">{{ $message }}</div>
+                    <div class="text-danger my-2">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group @error('workCentrePhone2') is-invalid @enderror col-md-4">
                     <label for="workCentrePhone2">Telèfon 2</label>
-                    <input type="text" class="form-control" name="workCentrePhone2" placeholder="+34 971123456">
+                    <input type="text" class="form-control @error('workCentrePhone2') is-invalid @enderror" name="workCentrePhone2" placeholder="+34 971123456">
                     @error('workCentrePhone2')
-                    <div class="alert alert-danger">{{ $message }}</div>
+                    <div class="text-danger my-2">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
@@ -222,32 +222,32 @@
             <div class="form-row">
                 <div class="form-group @error('workCentreLocation') is-invalid @enderror col-md-4">
                     <label for="workCentreLocation">Població</label>
-                    <input type="text" class="form-control" name="workCentreLocation" placeholder="Palma de Mallorca">
+                    <input type="text" class="form-control @error('workCentreLocation') is-invalid @enderror" name="workCentreLocation" placeholder="Palma de Mallorca">
                     @error('workCentreLocation')
-                    <div class="alert alert-danger">{{ $message }}</div>
+                    <div class="text-danger my-2">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group @error('workCentreAddress') is-invalid @enderror col-md-4">
                     <label for="workCentreAddress">Adreça</label>
-                    <input type="text" class="form-control" name="workCentreAddress" placeholder="C/ Aragó 21, 1A">
+                    <input type="text" class="form-control @error('workCentreAddress') is-invalid @enderror" name="workCentreAddress" placeholder="C/ Aragó 21, 1A">
                     @error('workCentreAddress')
-                    <div class="alert alert-danger">{{ $message }}</div>
+                    <div class="text-danger my-2">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group @error('workCentreCp') is-invalid @enderror col-md-4">
                     <label for="workCentreCp">Codi Postal</label>
-                    <input type="number" class="form-control" name="workCentreCp" placeholder="07006">
+                    <input type="number" class="form-control @error('workCentreCp') is-invalid @enderror" name="workCentreCp" placeholder="07006">
                     @error('workCentreCp')
-                    <div class="alert alert-danger">{{ $message }}</div>
+                    <div class="text-danger my-2">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
 
             <div class="form-group @error('workCentreEmail') is-invalid @enderror">
                 <label for="workCentreEmail">Adreça electrònica</label>
-                <input type="email" class="form-control" name="workCentreEmail" placeholder="exemple@gmail.com">
+                <input type="email" class="form-control @error('workCentreEmail') is-invalid @enderror" name="workCentreEmail" placeholder="exemple@gmail.com">
                 @error('workCentreEmail')
-                <div class="alert alert-danger">{{ $message }}</div>
+                <div class="text-danger my-2">{{ $message }}</div>
                 @enderror
             </div>
         </div>
@@ -274,25 +274,25 @@
                                 </label>
                             </div>
                             @error('agreementType')
-                            <div class="alert alert-danger">{{ $message }}</div>
+                            <div class="text-danger my-2">{{ $message }}</div>
                             @enderror
                         </div>
                     </div>
                 </fieldset>
                 <div class="form-group @error('agreementSchedule') is-invalid @enderror">
                     <label for="agreementSchedule">Horari</label>
-                    <input type="text" class="form-control" name="agreementSchedule" placeholder="De 8:00 a 10:00">
+                    <input type="text" class="form-control @error('companyName') is-invalid @enderror" name="agreementSchedule" placeholder="De 8:00 a 10:00">
                     @error('agreementSchedule')
-                        <div class="alert alert-danger">{{ $message }}</div>
+                        <div class="text-danger my-2">{{ $message }}</div>
                     @enderror
                 </div>
             </div>
 
             <div class="form-group @error('agreementPosition') is-invalid @enderror">
                 <label for="agreementPosition">Lloc de treball</label>
-                <input type="text" class="form-control" name="agreementPosition" placeholder="Lloc de treball">
+                <input type="text" class="form-control @error('companyName') is-invalid @enderror" name="agreementPosition" placeholder="Lloc de treball">
                 @error('agreementPosition')
-                <div class="alert alert-danger">{{ $message }}</div>
+                <div class="text-danger my-2">{{ $message }}</div>
                 @enderror
             </div>
         </div>
