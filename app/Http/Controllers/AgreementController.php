@@ -32,6 +32,7 @@ class AgreementController extends Controller
                 'workCentreCp' => 'required|digits:5',
                 'workCentreEmail' => 'required|email|min:5|max:100',
                 'agreementType' => 'required|in:full-time,part-time',
+                'agreementSchedule' => 'required',
                 'agreementPosition' => 'required|min:3|max:150'
             ],
             [
@@ -52,6 +53,7 @@ class AgreementController extends Controller
                 'workCentreCp.required' => "No s'ha introduït un codi postal",
                 'workCentreEmail.required' => "No s'ha introduït un e-mail",
                 'agreementType.required' => "No s'ha introduït un tipus de jornada",
+                'agreementSchedule.required' => "No s'ha introduït un tipus de jornada",
                 'agreementPosition.required' => "No s'ha introduït un lloc de treball"
             ]
         );
