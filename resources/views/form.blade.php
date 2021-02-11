@@ -289,6 +289,41 @@
                 </div>
             </div>
 
+            <div class="form-row">
+                <div class="form-group col-md-6 @error('agreementCoordinatorName') is-invalid @enderror">
+                    <label for="agreementCoordinatorName">Coordindaor FCT</label>
+                    <input type="text" class="form-control @error('agreementCoordinatorName') is-invalid @enderror" name="agreementCoordinatorName" value="{{ old('agreementCoordinatorName') }}" placeholder="Nom i cognom">
+                    @error('agreementCoordinatorName')
+                    <div class="text-danger my-2">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="form-group col-md-6 @error('agreementCoordinatorNif') is-invalid @enderror">
+                    <label for="agreementCoordinatorNif">NIF</label>
+                    <input type="text" class="form-control @error('agreementCoordinatorNif') is-invalid @enderror" name="agreementCoordinatorNif" value="{{ old('agreementCoordinatorNif') }}" placeholder="433432412F">
+                    @error('agreementCoordinatorNif')
+                    <div class="text-danger my-2">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6 @error('agreementTutorName') is-invalid @enderror">
+                    <label for="agreementTutorName">Tutor de les pràctiques</label>
+                    <input type="text" class="form-control @error('agreementTutorName') is-invalid @enderror" name="agreementTutorName" value="{{ old('agreementTutorName') }}" placeholder="Nom i cognom">
+                    @error('agreementTutorName')
+                    <div class="text-danger my-2">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="form-group col-md-6 @error('agreementTutorNif') is-invalid @enderror">
+                    <label for="agreementTutorNif">NIF</label>
+                    <input type="text" class="form-control @error('agreementTutorNif') is-invalid @enderror" name="agreementTutorNif" value="{{ old('agreementTutorNif') }}" placeholder="433432412F">
+                    @error('agreementTutorNif')
+                    <div class="text-danger my-2">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+
+
             <div class="form-group @error('agreementPosition') is-invalid @enderror">
                 <label for="agreementPosition">Lloc de treball</label>
                 <input type="text" class="form-control @error('agreementPosition') is-invalid @enderror" name="agreementPosition" value="{{ old('agreementPosition') }}" placeholder="Lloc de treball">

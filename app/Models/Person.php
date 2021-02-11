@@ -12,8 +12,9 @@ class Person extends Model
     protected $fillable = [
         'NIF',
         'name',
+        'role',
     ];
 
     protected $table = 'person';
 }
-}
+

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Person;
 use Illuminate\Http\Request;
 
 
@@ -33,7 +34,11 @@ class AgreementController extends Controller
                 'workCentreEmail' => 'required|email|min:5|max:100',
                 'agreementType' => 'required|in:full-time,part-time',
                 'agreementSchedule' => 'required',
-                'agreementPosition' => 'required|min:3|max:150'
+                'agreementPosition' => 'required|min:3|max:150',
+                'agreementCoordinatorName' => 'required|min:3|max:50',
+                'agreementCoordinatorNif' => 'required|min:3|max:15',
+                'agreementTutorName' => 'required|min:3|max:50',
+                'agreementTutorNif' => 'required|min:3|max:15',
             ],
             [
                 'companyName.required' => "No s'ha introduït un nom",
@@ -54,9 +59,20 @@ class AgreementController extends Controller
                 'workCentreEmail.required' => "No s'ha introduït un e-mail",
                 'agreementType.required' => "No s'ha introduït un tipus de jornada",
                 'agreementSchedule.required' => "No s'ha introduït un tipus de jornada",
-                'agreementPosition.required' => "No s'ha introduït un lloc de treball"
+                'agreementPosition.required' => "No s'ha introduït un lloc de treball",
+                'agreementCoordinatorName.required' => "No s'ha introduït el nom del coordinador",
+                'agreementCoordinatorNif.required' => "No s'ha introduït el NIF del coordinador",
+                'agreementTutorName.required' => "No s'ha introduït el nom del tutor",
+                'agreementTutorName.required' => "No s'ha introduït el NIF del tutor",
             ]
         );
+
+        $companyRepresentant = new Person();
+        $companyRepresentant->NIF = $request['representantNif'];
+        $companyRepresentant->name = $request['representantName'];
+        $companyRepresentant->role = 'Company representant';
+
+
         return $request;
     }
 }
