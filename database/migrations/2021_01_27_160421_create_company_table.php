@@ -28,7 +28,6 @@ class CreateCompanyTable extends Migration
             $table->string("ownership");
             $table->string("representant_NIF");
             $table->timestamps();
-            $table->foreign('representant_NIF')->references('NIF')->on('person');
         });
 
         //Add production sector constraint check

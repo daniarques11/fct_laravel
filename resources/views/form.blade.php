@@ -203,11 +203,11 @@
                 <div class="form-group @error('workCenterWorkersNum') is-invalid @enderror col-md-4">
                     <label for="workCenterWorkersNum">Nombre de treballadors</label>
                     <select name="workCenterWorkersNum" class="form-control @error('workCenterWorkersNum') is-invalid @enderror" value="{{ old('workCenterWorkersNum') }}">
-                        <option value="<10">10 o menys</option>
+                        <option value="-10">10 o menys</option>
                         <option value="11-20">Entre 11 i 20</option>
                         <option value="21-50">Entre 21 i 50</option>
                         <option value="51-100">Entre 51 i 100</option>
-                        <option value="100>">Més de 100</option>
+                        <option value="100->">Més de 100</option>
                     </select>
                     @error('workCenterWorkersNum')
                     <div class="text-danger my-2">{{ $message }}</div>

@@ -29,7 +29,7 @@ class AgreementController extends Controller
                 'representantName' => 'required|min:3|max:50',
                 'representantNif' => 'required|min:3|max:15',
                 'workCenterName' => 'required|min:3|max:100',
-                'workCenterWorkersNum' => 'required|in:<10,11-20,21-50,51-100,100>',
+                'workCenterWorkersNum' => 'required|in:-10,11-20,21-50,51-100,100-',
                 'workCentrePhone1' => 'required|min:9|max:15',
                 'workCentrePhone2' => 'max:15',
                 'workCentreLocation' => 'required|min:5|max:100',
@@ -115,14 +115,13 @@ class AgreementController extends Controller
         $workingCenter->email = $request['workCentreEmail'];
         $workingCenter->workers_number = $request['workCenterWorkersNum'];
         $workingCenter->save();
-        //Fetch the id that has been created for this working center
+        //Fetch the id that has been created by the migration for this working center
         $savedWorkingCenterId = DB::table('working_center')
             ->where('name', $workingCenter->name)
             ->where('company_CIF', $workingCenter->company_CIF)
             ->where('address', $workingCenter->address)
             ->where('town', $workingCenter->town)
             ->value('id');
-
 
         $agreement = new Agreement();
         $agreement->working_center_id = $savedWorkingCenterId;
