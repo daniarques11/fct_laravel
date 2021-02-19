@@ -25,5 +25,11 @@ class Company extends Model
 
     protected $table = 'company';
 
+    protected $keyType = 'string';
     protected $primaryKey = 'CIF';
+
+    public function person(){
+        return $this->hasOne(Person::class, 'representant_NIF', 'NIF');
+    }
+    
 }

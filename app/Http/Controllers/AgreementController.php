@@ -72,65 +72,73 @@ class AgreementController extends Controller
                 'agreementTutorNif.required' => "No s'ha introduït el NIF del tutor",
             ]
         );
-        //TODO: Almacenar estado de los save (si alguno da false, petar)
-        $companyRepresentant = new Person();
-        $companyRepresentant->NIF = $request['representantNif'];
-        $companyRepresentant->name = $request['representantName'];
-        $companyRepresentant->role = 'Company representant';
-        $companyRepresentant->save();
 
-        $fctCoordinator = new Person();
-        $fctCoordinator->NIF = $request['agreementCoordinatorNif'];
-        $fctCoordinator->name = $request['agreementCoordinatorName'];
-        $fctCoordinator->role = 'FCT Coordinator';
-        $fctCoordinator->save();
+        DB::beginTransaction();
+        try {
+            //TODO: Almacenar estado de los save (si alguno da false, petar)
+            $companyRepresentant = new Person();
+            $companyRepresentant->NIF = $request['representantNif'];
+            $companyRepresentant->name = $request['representantName'];
+            $companyRepresentant->role = 'Company representant';
+            $companyRepresentant->save();
 
-        $tutor = new Person();
-        $tutor->NIF = $request['agreementTutorNif'];
-        $tutor->name = $request['agreementTutorName'];
-        $tutor->role = 'Company tutor';
-        $tutor->save();
+            $fctCoordinator = new Person();
+            $fctCoordinator->NIF = $request['agreementCoordinatorNif'];
+            $fctCoordinator->name = $request['agreementCoordinatorName'];
+            $fctCoordinator->role = 'FCT Coordinator';
+            $fctCoordinator->save();
 
-        $company = new Company();
-        $company->CIF = $request['companyCif'];
-        $company->name = $request['companyName'];
-        $company->address = $request['companyAddress'];
-        $company->town = $request['companyLocation'];
-        $company->phone_number_1 = $request['companyPhone1'];
-        $company->phone_number_2 = $request['companyPhone2'];
-        $company->email = $request['companyEmail'];
-        $company->production_sector = $request['companySector'];
-        $company->main_activity = $request['companyMainActivity'];
-        $company->ownership = $request['companyOwnership'];
-        $company->representant_NIF = $companyRepresentant->NIF;
-        $company->save();
+            $tutor = new Person();
+            $tutor->NIF = $request['agreementTutorNif'];
+            $tutor->name = $request['agreementTutorName'];
+            $tutor->role = 'Company tutor';
+            $tutor->save();
 
-        $workingCenter = new WorkingCenter();
-        $workingCenter->name = $request['workCenterName'];
-        $workingCenter->company_CIF = $company->CIF;
-        $workingCenter->address = $request['workCentreAddress'];
-        $workingCenter->town = $request['workCentreLocation'];
-        $workingCenter->phone_number_1 = $request['workCentrePhone1'];
-        $workingCenter->phone_number_2 = $request['workCentrePhone2'];
-        $workingCenter->email = $request['workCentreEmail'];
-        $workingCenter->workers_number = $request['workCenterWorkersNum'];
-        $workingCenter->save();
-        //Fetch the id that has been created by the migration for this working center
-        $savedWorkingCenterId = DB::table('working_center')
-            ->where('name', $workingCenter->name)
-            ->where('company_CIF', $workingCenter->company_CIF)
-            ->where('address', $workingCenter->address)
-            ->where('town', $workingCenter->town)
-            ->value('id');
+            $company = new Company();
+            $company->CIF = $request['companyCif'];
+            $company->name = $request['companyName'];
+            $company->address = $request['companyAddress'];
+            $company->town = $request['companyLocation'];
+            $company->phone_number_1 = $request['companyPhone1'];
+            $company->phone_number_2 = $request['companyPhone2'];
+            $company->email = $request['companyEmail'];
+            $company->production_sector = $request['companySector'];
+            $company->main_activity = $request['companyMainActivity'];
+            $company->ownership = $request['companyOwnership'];
+            $company->representant_NIF = $companyRepresentant->NIF;
+            $company->save();
 
-        $agreement = new Agreement();
-        $agreement->working_center_id = $savedWorkingCenterId;
-        $agreement->FCT_coordinator_NIF = $fctCoordinator->NIF;
-        $agreement->company_tutor_NIF = $tutor->NIF;
-        $agreement->day_work_type = $request['agreementType'];
-        $agreement->schedule = $request['agreementSchedule'];
-        $agreement->save();
+            $workingCenter = new WorkingCenter();
+            $workingCenter->name = $request['workCenterName'];
+            $workingCenter->company_CIF = $company->CIF;
+            $workingCenter->address = $request['workCentreAddress'];
+            $workingCenter->town = $request['workCentreLocation'];
+            $workingCenter->phone_number_1 = $request['workCentrePhone1'];
+            $workingCenter->phone_number_2 = $request['workCentrePhone2'];
+            $workingCenter->email = $request['workCentreEmail'];
+            $workingCenter->workers_number = $request['workCenterWorkersNum'];
+            $workingCenter->save();
+            //Fetch the id that has been created by the migration for this working center
+            $savedWorkingCenterId = DB::table('working_center')
+                ->where('name', $workingCenter->name)
+                ->where('company_CIF', $workingCenter->company_CIF)
+                ->where('address', $workingCenter->address)
+                ->where('town', $workingCenter->town)
+                ->value('id');
 
+            $agreement = new Agreement();
+            $agreement->working_center_id = $savedWorkingCenterId;
+            $agreement->FCT_coordinator_NIF = $fctCoordinator->NIF;
+            $agreement->company_tutor_NIF = $tutor->NIF;
+            $agreement->day_work_type = $request['agreementType'];
+            $agreement->schedule = $request['agreementSchedule'];
+            $agreement->save();
+
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollback();
+            throw $e;
+        }
         return $request;
     }
 }

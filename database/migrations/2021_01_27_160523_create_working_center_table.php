@@ -23,6 +23,7 @@ class CreateWorkingCenterTable extends Migration
             $table->string("phone_number_2")->nullable();
             $table->string("email")->nullable();
             $table->integer("workers_number");
+            $table->foreign('company_CIF')->references('CIF')->on('company');
             $table->timestamps();
         });
     }

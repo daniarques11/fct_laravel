@@ -22,7 +22,9 @@ class CreateAgreementTable extends Migration
             $table->string("company_tutor_NIF");
             $table->string("day_work_type");
             $table->string("schedule");
-
+            $table->foreign('working_center_id')->references('id')->on('working_center');
+            $table->foreign('FCT_coordinator_NIF')->references('NIF')->on('person');
+            $table->foreign('company_tutor_NIF')->references('NIF')->on('person');
             $table->timestamps();
         });
 

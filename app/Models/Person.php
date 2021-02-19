@@ -17,6 +17,7 @@ class Person extends Model
 
     protected $table = 'person';
 
+    protected $keyType = 'string';
     protected $primaryKey = 'NIF';
 }
 
