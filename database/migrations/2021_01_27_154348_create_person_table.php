@@ -16,8 +16,10 @@ class CreatePersonTable extends Migration
         Schema::create('person', function (Blueprint $table) {
             $table->string("NIF")->primary();
             $table->string("name");
+            $table->string("role");
             $table->timestamps();
         });
+        //TODO: Añadir alter table para que "role" solo acepte los valores que queremos
     }
 
     /**

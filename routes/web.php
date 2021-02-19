@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AgreementController;
 use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,6 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/prueba', function () {
-    return view('prueba');
+Route::get('/', function () {
+    return view('welcome');
 });
+
+Route::get('/form', function () {
+    return view('form');
+});
+
+Route::post('/form', [AgreementController::class, 'store']);
