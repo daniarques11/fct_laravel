@@ -39,7 +39,7 @@
                 Informació de l'empresa
             </h2>
             <div class="form-group">
-                <label for="companyName">Nom</label>
+                <label for="companyName">@lang('formData.companyName')</label>
                 <input type="text" class="form-control @error('companyName') is-invalid @enderror" name="companyName" value="{{ old('companyName') }}" placeholder="Empresa S.L." >
                 @error('companyName')
                 <div class="text-danger my-2">{{ $message }}</div>
@@ -48,14 +48,14 @@
 
             <div class="form-row">
                 <div class="form-group @error('companyCif') is-invalid @enderror col-md-4">
-                    <label for="companyCif">CIF</label>
+                    <label for="companyCif">{{__('formData.companyCif')}}</label>
                     <input type="text" class="form-control @error('companyCif') is-invalid @enderror" name="companyCif" value="{{ old('companyCif') }}" placeholder="4124992032X">
                     @error('companyCif')
                     <div class="text-danger my-2">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group @error('companyPhone1') is-invalid @enderror col-md-4">
-                    <label for="companyPhone1">Telèfon 1</label>
+                    <label for="companyPhone1">@lang('formData.companyPhone1')</label>
                     <input type="tel" class="form-control @error('companyPhone1') is-invalid @enderror" name="companyPhone1" value="{{ old('companyPhone1') }}" placeholder="+34 971123456">
                     @error('companyPhone1')
                     <div class="text-danger my-2">{{ $message }}</div>
